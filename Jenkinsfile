@@ -40,7 +40,7 @@ pipeline {
         }
         stage('Quality Tests') {
           steps {
-            sh 'docker login --rohit8482 $DOCKER_USR --dckr_pat_8DVpSKxtYdnli3uWg3FSh5ASNkw $DOCKER_PSW'
+            sh 'docker login --username rohit8482 --password dckr_pat_8DVpSKxtYdnli3uWg3FSh5ASNkw'
             sh 'docker tag nodeapp-dev:trunk Rohitdoc/nodeapp-dev:latest'
             sh 'docker push Rohitdoc/nodeapp-dev:latest'
           }
