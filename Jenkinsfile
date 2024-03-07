@@ -41,8 +41,8 @@ pipeline {
         stage('Quality Tests') {
           steps {
             sh 'docker login --username rohit8482 --password dckr_pat_8DVpSKxtYdnli3uWg3FSh5ASNkw'
-            sh 'docker tag nodeapp-dev:trunk Rohitdoc/nodeapp-dev:latest'
-            sh 'docker push Rohitdoc/nodeapp-dev:latest'
+            sh 'docker tag nodeapp-dev:trunk rohit8482/nodeapp-dev:latest'
+            sh 'docker push rohit8482/nodeapp-dev:latest'
           }
         }
       }
@@ -66,9 +66,9 @@ pipeline {
             steps {
                     retry(3) {
                         timeout(time:10, unit: 'MINUTES') {
-                            sh 'docker tag nodeapp-dev:trunk <DockerHub Username>/nodeapp-prod:latest'
-                            sh 'docker push <DockerHub Username>/nodeapp-prod:latest'
-                            sh 'docker save <DockerHub Username>/nodeapp-prod:latest | gzip > nodeapp-prod-golden.tar.gz'
+                            sh 'docker tag nodeapp-dev:trunk rohit8482/nodeapp-prod:latest'
+                            sh 'docker push rohit8482/nodeapp-prod:latest'
+                            sh 'docker save rohit8482/nodeapp-prod:latest | gzip > nodeapp-prod-golden.tar.gz'
                         }
                     }
 
